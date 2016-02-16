@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="resources/css/stylesheet.css" rel="stylesheet" type="text/css">
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<script src="node_modules/rxjs/bundles/Rx.js"></script>
+	<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <!-- Need this for routing -->
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/http.dev.js"></script>
+    <!-- 
+        This script tag must be below the system.src.js script tag otherwise routing does not work. It gives an EXCEPTION: No provider for Router! 
+        Tag for es6-shim.js must also be after system.src.js script tag
+    --> 
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+	
+	<script>
+		System.config({
+			packages: {
+				app: {
+					format: 'register',
+					defaultExtension: 'js' /*makes it possible to not needed to use .js extension in paths*/
+				}
+			}
+		});
+		System.import('app/boot').then(null, console.error.bind(console));
+	</script>
+</head>
+
+<!-- base tag is important for urls and routing to work well in Angular2 -->
+<base href="/">
+
+<body>
+    <main-app></main-app>
+</body>
+</html>
