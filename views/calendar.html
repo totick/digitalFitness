@@ -3,35 +3,19 @@
     <div class="col-lg-10 col-lg-offset-1">
         <!-- The row class is the layer that contains all your columns -->
         <div class="row">
-            <ul class="list-inline calendar-header">
-                <li>Monday</li>
-                <li>Monday</li>
-                <li>Monday</li>
-                <li>Monday</li>
-                <li>Monday</li>
-                <li>Monday</li>
-                <li>Monday</li>
-            </ul>
+            <div class="col-lg-1 col-md-1 centered-text calendar-header">Monday</div>
+            <div class="col-lg-1 col-md-1 centered-text calendar-header">Tuesday</div>
+            <div class="col-lg-1 col-md-1 centered-text calendar-header">Wednesday</div>
+            <div class="col-lg-1 col-md-1 centered-text calendar-header">Thursday</div>
+            <div class="col-lg-1 col-md-1 centered-text calendar-header">Friday</div>
+            <div class="col-lg-1 col-md-1 centered-text calendar-header">Saturday</div>
+            <div class="col-lg-1 col-md-1 centered-text calendar-header">Sunday</div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
-            <div class="col-lg-1 col-md-1 centered-text calendar-box"><span><i class="glyphicon glyphicon-eye-open"></i></span>1</div>
+        <div *ngFor="#week of allDays" class="row">
+            <div *ngFor="#day of week" class="col-lg-1 col-md-1 centered-text calendar-box">
+                <span><i class="glyphicon glyphicon-eye-open"></i></span>{{day.date.getDate()}}
+            </div>
         </div>
     </div>
 </div>

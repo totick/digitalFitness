@@ -19,6 +19,27 @@ System.register(['angular2/core'], function(exports_1) {
             CalendarComponent = (function () {
                 function CalendarComponent() {
                 }
+                CalendarComponent.prototype.getMonthInfo = function () {
+                    var d = new Date("2016-04-01");
+                    var month = d.getMonth();
+                    this.startWeekDay = d.getDay();
+                    this.endMonthDay = new Date(d.getFullYear(), month, 0).getDate();
+                    d.setDate(d.getDate() - (this.startWeekDay - 1));
+                    this.allDays = [];
+                    for (var i = 0; i < 5; i++) {
+                        var oneWeek = [];
+                        for (var j = 0; j < 7; j++) {
+                            var withinMonth = (d.getMonth() == month) ? true : false;
+                            var dateInfo = { date: new Date(d.toString()), trained: false, withinMonth: withinMonth ? "" : "disabled='disabled'" };
+                            oneWeek.push(dateInfo);
+                            d.setDate(d.getDate() + 1);
+                        }
+                        this.allDays.push(oneWeek);
+                    }
+                };
+                CalendarComponent.prototype.ngOnInit = function () {
+                    this.getMonthInfo();
+                };
                 CalendarComponent = __decorate([
                     core_1.Component({
                         selector: 'calendar',

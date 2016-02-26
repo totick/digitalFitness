@@ -5,9 +5,11 @@
 
 .calendar-header{
     background-color: #F6F7FB;
-    border: solid 1px #ddd;
+    width: 9em;
     margin-bottom: 3px;
+    margin-right: 3px;
 }
+
 
 .calendar-box{
     cursor: pointer;
