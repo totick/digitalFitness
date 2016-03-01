@@ -13,7 +13,7 @@
         </div>
 
         <div *ngFor="#week of allDays" class="row">
-            <div *ngFor="#day of week" class="col-lg-1 col-md-1 centered-text calendar-box">
+            <div *ngFor="#day of week" class="col-lg-1 col-md-1 centered-text" [ngClass]="{'calendar-box': day.withinMonth, 'calendar-box-disabled': !day.withinMonth}">
                 <span><i class="glyphicon glyphicon-eye-open"></i></span>{{day.date.getDate()}}
             </div>
         </div>

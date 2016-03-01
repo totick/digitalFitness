@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1) {
+System.register(['angular2/core', 'angular2/common'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,12 +8,15 @@ System.register(['angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, common_1;
     var CalendarComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             }],
         execute: function() {
             CalendarComponent = (function () {
@@ -30,7 +33,7 @@ System.register(['angular2/core'], function(exports_1) {
                         var oneWeek = [];
                         for (var j = 0; j < 7; j++) {
                             var withinMonth = (d.getMonth() == month) ? true : false;
-                            var dateInfo = { date: new Date(d.toString()), trained: false, withinMonth: withinMonth ? "" : "disabled='disabled'" };
+                            var dateInfo = { date: new Date(d.toString()), trained: false, withinMonth: withinMonth };
                             oneWeek.push(dateInfo);
                             d.setDate(d.getDate() + 1);
                         }
@@ -43,7 +46,8 @@ System.register(['angular2/core'], function(exports_1) {
                 CalendarComponent = __decorate([
                     core_1.Component({
                         selector: 'calendar',
-                        templateUrl: '../../views/calendar.html'
+                        templateUrl: '../views/calendar.html',
+                        directives: [common_1.NgClass]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], CalendarComponent);
